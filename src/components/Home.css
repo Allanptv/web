@@ -1,0 +1,29 @@
+/* // .ant-btn-primary, .ant-btn {
+//     border-color: transparent;
+// } */
+.ant-modal-confirm-success .ant-modal-confirm-body > .anticon {
+    display: none;
+  }
+
+.login_title{
+  background-color: #c4c4c4;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.card_login{
+  width: 500px;
+  height: 300px;
+  background-color: #674278;
+  border-radius: 10px;
+}
+
+.site-card-border-less-wrapper{
+  text-align: -webkit-center;
+  top: 30%;
+  position: absolute;
+  left: 30%;
+}
+
+.body{
+  background-color: #c4c4c4;
+}
