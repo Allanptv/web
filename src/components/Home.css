@@ -11,6 +11,12 @@
   color: #000;
 }
 
+.login_footer{
+  background-color: #c4c4c4;
+  border-radius: 0px 0px 10px 10px;
+  color: #000;
+}
+
 .card_login{
   width: 500px;
   height: 300px;
@@ -24,4 +30,8 @@
   top: 30%;
   position: absolute;
   left: 30%;
+}
+.page_title{
+  background-color: #c4c4c4;
+  color: #000;
 }

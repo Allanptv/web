@@ -5,6 +5,7 @@ import RouteWithLayout from './components/RouteWithLayout';
 
 import Master from "./components/Master";
 import Logon from './components/Logon';
+import SignUp from './components/SignUp';
 import Home from './components/Home';
 
 const initialPath = '/Estocy';
@@ -23,6 +24,7 @@ const Routes = () => {
   return (
     <Switch>
       <Route exact path='/' component={Logon}/>
+      <Route exact path='/signUp' component={SignUp}/>
       {/* <RouteWithLayout
         component={Logon}
         exact

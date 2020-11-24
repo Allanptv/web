@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { PageHeader, Layout, Card, Button, Input } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import MainMenu from './../common/menu'
 import './Home.css';
 
@@ -26,8 +26,11 @@ const Logon = (props) => {
                         <p>Nome de Usuário / Email: </p>
                         <Input placeholder="Usuário" prefix={<UserOutlined />} />
                         <p>Senha: </p>
-                        <Input placeholder="Senha" prefix={<UserOutlined />} />
+                        <Input placeholder="Senha" prefix={<LockOutlined />} />
                         <Button>Entrar</Button>
+                        <div className="login_footer">
+                            <p>Ainda não possui uma conta? </p> <a>Cadastre-se</a>
+                        </div>
                     </Card>
                 </div>
             </Content>

@@ -2,7 +2,7 @@ import { Menu } from 'antd'
 
 const mainMenu = () => {
     return(
-        // <div>    
+        <div className="menu">    
             <Menu mode="horizontal">
                 <Menu.Item key="home">
                     <a href="https://google.com">Home</a>
@@ -12,7 +12,7 @@ const mainMenu = () => {
                 <Menu.Item>Clientes</Menu.Item>
                 <Menu.Item>Suporte</Menu.Item>
             </Menu>
-        // </div>
+        </div>
     );
 };
 
