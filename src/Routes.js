@@ -7,6 +7,8 @@ import Master from "./components/Master";
 import Logon from './components/Logon';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
+import Client from './components/Clients';
+import Products from './components/Products';
 
 const initialPath = '/Estocy';
 
@@ -25,6 +27,8 @@ const Routes = () => {
     <Switch>
       <Route exact path='/' component={Logon}/>
       <Route exact path='/signUp' component={SignUp}/>
+      <Route exact path='/clients' component={Client}/>
+      <Route exact path='/products' component={Products}/>
       {/* <RouteWithLayout
         component={Logon}
         exact
