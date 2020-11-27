@@ -5,7 +5,7 @@ import axios from 'axios';
 import { PageHeader, Layout, Card, Button, Input, Row, Col } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import MainMenu from './../common/menu'
-import './Home.css';
+import './SignUp.css';
 
 const { Content } = Layout 
 
@@ -26,21 +26,21 @@ const Logon = (props) => {
                             <h3 >Criar Conta</h3>
                         </div>
                         <Input.Group size="large">
-                            <Row gutter={8}>
-                                <Col span={5}>
-                                    <p>Nome: </p>
+                            <Row className="Group" gutter={8}>
+                                <Col className="nome" span={5}>
+                                    <p className="text teste">Nome: </p>
                                     <Input placeholder="Nome"  />
                                 </Col>
                                 <Col span={3}>
-                                    <p>Sobrenome: </p>
+                                    <p className="text Sobrenome teste">Sobrenome: </p>
                                     <Input placeholder="Sobrenome"  />
                                 </Col>
                             </Row>
                         </Input.Group>
-                        <p>Email: </p>
+                        <p className="text">Email: </p>
                         <Input placeholder="Email"/>
-                        <p>Senha: </p>
-                        <Input placeholder="Senha"/>
+                        <p className="text ">Senha: </p>
+                        <Input.Password className="text Senha" placeholder="Senha"/>
                         <br/>
                         <Button>Cadastrar</Button>
                     </Card>

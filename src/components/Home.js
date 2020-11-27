@@ -14,7 +14,7 @@ const Home = (props) => {
   
   return (
     <React.Fragment>
-      <MainMenu/>
+      {/* <MainMenu/> */}
       <PageHeader ghost={false} title="Página Inicial" />
     </React.Fragment>
   );

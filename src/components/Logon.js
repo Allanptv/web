@@ -23,13 +23,15 @@ const Logon = (props) => {
                         <div className="login_title">
                             <h3 >Login</h3>
                         </div>
-                        <p>Nome de Usuário / Email: </p>
+                        <p className="text">Nome de Usuário / Email: </p>
                         <Input placeholder="Usuário" prefix={<UserOutlined />} />
-                        <p>Senha: </p>
-                        <Input placeholder="Senha" prefix={<LockOutlined />} />
-                        <Button>Entrar</Button>
+                        <p className="text" >Senha: </p>
+                        <div className="div1">
+                            <Input placeholder="Senha" prefix={<LockOutlined />} />
+                            <Button>Entrar</Button>
+                        </div>
                         <div className="login_footer">
-                            <p>Ainda não possui uma conta? </p> <a>Cadastre-se</a>
+                            <p>Ainda não possui uma conta? </p><Button type="link">Cadastre-se</Button>
                         </div>
                     </Card>
                 </div>
