@@ -6,7 +6,7 @@ import { PageHeader, Layout, Card, Button, Input, Form } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import MainMenu from './../common/menu'
 import { CadastrarProduto } from '../services/cadastrarProduto'
-import './Home.css';
+import './CreateProduct.css';
 
 
 const { Content } = Layout 
@@ -45,59 +45,75 @@ const NewProduct = (props) => {
         <Layout>
             <Content>
                 <div className="login_title">
-                    <h3 >Novo Produto</h3>
+                    <h3>Novo Produto</h3>
                 </div>
-                <Form>
-                    <Form.Item
-                        label="Nome"
-                        name="nome"
-                        rules={[{required: true, message: 'Insira o nome do produto'}]}
-                    >
-                        <Input onChange={e => setName(e.target.value)}/>
-                    </Form.Item>
-                    <Form.Item
-                        label="Descrição"
-                        name="descricao"
-                        rules={[{required: false, message: 'Insira a descrição (Opcional)'}]}
-                    >
-                        <Input onChange={e => setDescription(e.target.value)}/>
-                    </Form.Item>
-                    <Form.Item
-                        label="Preço"
-                        name="preco"
-                        rules={[{required: true, message: 'Insira o preço'}]}
-                    >
-                        <Input onChange={e => setPrice(e.target.value)}/>
-                    </Form.Item>
-                    <Form.Item
-                        label="Cor"
-                        name="cor"
-                        rules={[{required: true, message: 'Insira a cor'}]}
-                    >
-                        <Input onChange={e => setColor(e.target.value)}/>
-                    </Form.Item>
-                    <Form.Item
-                        label="Peso"
-                        name="peso"
-                        rules={[{required: true, message: 'Insira o peso'}]}
-                    >
-                        <Input onChange={e => setWeight(e.target.value)}/>
-                    </Form.Item>
-                    <Form.Item
-                        label="Modelo"
-                        name="modelo"
-                        rules={[{required: true, message: 'Insira o modelo'}]}
-                    >
-                        <Input onChange={e => setBrand(e.target.value)}/>
-                    </Form.Item>
-                    <Form.Item
-                        label="Quantidade de itens"
-                        name="quantidade"
-                        rules={[{required: true, message: 'Insira a quantidade'}]}
-                    >
-                        <Input onChange={e => setStock_amount(e.target.value)}/>
-                    </Form.Item>
-                    <Button onClick={() => handleClick()}>Cadastrar</Button>
+                <Form className="card_login">
+                        <div className="divI1">
+                            <Form.Item
+                            label="Nome"
+                            name="nome"
+                            rules={[{required: true, message: 'Insira o nome do produto'}]}>
+                            <Input className="inputt" onChange={e => setName(e.target.value)}/>
+                            </Form.Item>
+                        </div>
+                        <div className="divI2">
+                            <Form.Item
+                            label="Descrição"
+                            name="descricao"
+                            rules={[{required: false, message: 'Insira a descrição (Opcional)'}]}>
+                            <Input className="inputt" onChange={e => setDescription(e.target.value)}/>
+                            </Form.Item>
+                        </div>
+                        <div className="divI3">
+                            <Form.Item
+                                label="Preço"
+                                name="preco"
+                                rules={[{required: true, message: 'Insira o preço'}]}
+                            >
+                                <Input onChange={e => setPrice(e.target.value)}/>
+                            </Form.Item>
+                        </div>
+                        <div className="divI4">
+                            <Form.Item
+                                label="Cor"
+                                name="cor"
+                                rules={[{required: true, message: 'Insira a cor'}]}
+                            >
+                                <Input onChange={e => setColor(e.target.value)}/>
+                            </Form.Item>
+                        </div>
+                        <div className="divI5">
+                        <Form.Item
+                            label="Peso"
+                            name="peso"
+                            rules={[{required: true, message: 'Insira o peso'}]}
+                        >
+                            <Input  onChange={e => setWeight(e.target.value)}/>
+                        </Form.Item>
+                        </div>
+
+
+                        <div className="divI6">
+                            <Form.Item
+                                label="Modelo"
+                                name="modelo"
+                                rules={[{required: true, message: 'Insira o modelo'}]}
+                            >
+                                <Input  onChange={e => setBrand(e.target.value)}/>
+                            </Form.Item>
+                        </div>
+                        <div className="divI7">
+                            <Form.Item
+                                label="Quantidade de itens"
+                                name="quantidade"
+                                rules={[{required: true, message: 'Insira a quantidade'}]}
+                            >
+                                <Input onChange={e => setStock_amount(e.target.value)}/>
+                            </Form.Item>
+                        </div>
+                    <div className="divBtn">
+                        <Button onClick={() => handleClick()}>Cadastrar</Button>
+                    </div>
                 </Form>
                 
                 
