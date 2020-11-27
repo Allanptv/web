@@ -19,12 +19,12 @@ const Sells = (props) => {
 
     const vendas = [
         {
-            code = 0,
-            client = " ".
-            product = " ".
-            sale_date = " ",
-            status = 0,
-            price = 0.0,
+            code: 0,
+            client: " ",
+            product: " ",
+            sale_date: " ",
+            status: 0,
+            price: 0.0,
         }
     ];
     
@@ -83,6 +83,13 @@ const Sells = (props) => {
         },
     ]
 
+    function handleClick(e){
+        var win = window.open(`${process.env.PUBLIC_URL}/newSell`, '_blank');
+        if (win.focus) {
+            win.focus();
+        }
+    }
+
     function productDescription(){
         // const response = await ListarClienteService()
         
@@ -127,6 +134,7 @@ const Sells = (props) => {
                 
                 <div className="page_title">
                     <h1>Vendas</h1>
+                    <Button onClick={(e) => handleClick()} disabled> + Vendas</Button>
                 </div>
                 
                 <div>

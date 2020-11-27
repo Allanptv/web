@@ -27,6 +27,13 @@ const Products = (props) => {
         setPageTable(1);
     }
 
+    function handleClick(e){
+        var win = window.open(`${process.env.PUBLIC_URL}/createProduct`, '_blank');
+        if (win.focus) {
+            win.focus();
+        }
+    }
+
     const productTable = [
         {
             title: 'Cód',
@@ -116,6 +123,7 @@ const Products = (props) => {
                 
                 <div className="page_title">
                     <h1>Produtos</h1>
+                    <Button onClick={(e) => handleClick()}> + Produtos</Button>
                 </div>
                 
                 <div>

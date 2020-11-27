@@ -9,6 +9,9 @@ import SignUp from './components/SignUp';
 import Home from './components/Home';
 import Client from './components/Clients';
 import Products from './components/Products';
+import Sells from './components/Sells';
+import CreateProduct from './components/NewProduct';
+import NewSell from './components/NewSells';
 
 const initialPath = '/Estocy';
 
@@ -29,6 +32,9 @@ const Routes = () => {
       <Route exact path='/signUp' component={SignUp}/>
       <Route exact path='/clients' component={Client}/>
       <Route exact path='/products' component={Products}/>
+      <Route exact path='/sells' component={Sells}/>
+      <Route exact path='/createProduct' component={CreateProduct}/>
+      <Route exact path='/newSell' component={NewSell}/>
       {/* <RouteWithLayout
         component={Logon}
         exact

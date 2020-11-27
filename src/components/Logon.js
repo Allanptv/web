@@ -13,7 +13,13 @@ const Logon = (props) => {
 
   useEffect(() => {}, []);
 
-  
+  function handleClick(e){
+    var win = window.open(`${process.env.PUBLIC_URL}/clients`, '_blank');
+    if (win.focus) {
+        win.focus();
+    }
+}
+
   return (
     <React.Fragment>
         <Layout>
@@ -27,8 +33,8 @@ const Logon = (props) => {
                         <Input placeholder="Usuário" prefix={<UserOutlined />} />
                         <p className="text" >Senha: </p>
                         <div className="div1">
-                            <Input placeholder="Senha" prefix={<LockOutlined />} />
-                            <Button>Entrar</Button>
+                            <Input.Password placeholder="Senha" prefix={<LockOutlined />} />
+                            <Button onClick={(e) => handleClick()}>Entrar</Button>
                         </div>
                         <div className="login_footer">
                             <p>Ainda não possui uma conta? </p><Button type="link">Cadastre-se</Button>
