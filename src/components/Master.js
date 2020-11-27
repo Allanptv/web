@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom';
 
 // import Nav from './Nav/Nav'
 // import Header from './Header/Header'
-import Footer from './Footer'
+//import Footer from '../common/Footer/footer'
 import { paths } from '../Routes'
 
 
@@ -33,7 +33,7 @@ function Master({ children, StepName, StepValue }) {
             }
           </div>
         </div>
-        <Footer />
+        {/*<Footer />*/}
       </main>
     </div>
 

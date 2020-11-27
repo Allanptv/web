@@ -1,17 +1,21 @@
 import React from 'react';
-import { Switch, Redirect, Route } from 'react-router-dom';
-
-import RouteWithLayout from './components/RouteWithLayout';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import Master from "./components/Master";
-import Logon from './components/Logon';
-import SignUp from './components/SignUp';
-import Home from './components/Home';
-import Client from './components/Clients';
-import Products from './components/Products';
-import Sells from './components/Sells';
-import CreateProduct from './components/NewProduct';
-import NewSell from './components/NewSells';
+
+import Logon from './components/User/Login/Logon';
+
+import SignUp from './components/User/SignUp/SignUp';
+
+import Home from './components/Home/Home';
+
+import Client from './components/Client/Clients';
+
+import Products from './components/Product/Products';
+import CreateProduct from './components/Product/NewProduct/NewProduct';
+
+import Sells from './components/Sell/Sells';
+import NewSell from './components/Sell/NewSell/NewSells';
 
 const initialPath = '/Estocy';
 
@@ -25,35 +29,19 @@ const paths = {
 export { paths };
 
 
-const Routes = () => {
+export default function Routes(){
   return (
-    <Switch>
-      <Route exact path='/' component={Logon}/>
-      <Route exact path='/signUp' component={SignUp}/>
-      <Route exact path='/clients' component={Client}/>
-      <Route exact path='/products' component={Products}/>
-      <Route exact path='/sells' component={Sells}/>
-      <Route exact path='/createProduct' component={CreateProduct}/>
-      <Route exact path='/newSell' component={NewSell}/>
-      {/* <RouteWithLayout
-        component={Logon}
-        exact
-        layout={Master}
-        StepName="Logon"
-        StepValue={3}
-        path={paths.index}
-      />
-      <RouteWithLayout
-        component={Home}
-        exact
-        layout={Master}
-        StepName="Home"
-        StepValue={3}
-        to={paths.home}
-      /> */}
-      
-    </Switch>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path='/' component={Logon}/>
+        <Route exact path='/home' component={Home}/>
+        <Route exact path='/signUp' component={SignUp}/>
+        <Route exact path='/clients' component={Client}/>
+        <Route exact path='/products' component={Products}/>
+        <Route exact path='/products/create' component={CreateProduct}/>
+        <Route exact path='/sells' component={Sells}/>
+        <Route exact path='/sells/create' component={NewSell}/>      
+      </Switch>
+    </BrowserRouter>
   );
 };
-
-export default Routes;
