@@ -83,13 +83,6 @@ const Sells = (props) => {
         },
     ]
 
-    function handleClick(e){
-        var win = window.open(`${process.env.PUBLIC_URL}/newSell`, '_blank');
-        if (win.focus) {
-            win.focus();
-        }
-    }
-
     function productDescription(){
         // const response = await ListarClienteService()
         
@@ -134,7 +127,11 @@ const Sells = (props) => {
                 
                 <div className="page_title">
                     <h1>Vendas</h1>
-                    <Button onClick={(e) => handleClick()} disabled> + Vendas</Button>
+                    <Link to="/newSell">
+                        <Button renderAs="button">
+                            <span>Vendas</span>
+                        </Button>
+                    </Link>
                 </div>
                 
                 <div>

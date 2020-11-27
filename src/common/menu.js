@@ -1,6 +1,6 @@
-import React from 'react'
+/*import React from 'react'
 import { Menu, Layout, Drawer } from 'antd'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const mainMenu = (props) => {
 
@@ -29,19 +29,19 @@ const mainMenu = (props) => {
         },
     ];
 
-    // const { history, user } = props;
-    // debugger
-    // let indexSelected = menuItems.findIndex(
-        
-    //     (item) =>  history.location.pathname === item.link
-    //   );
+    const location = useLocation()
 
-    // let selected =
-    // indexSelected !== -1 ? `menu_${menuItems[indexSelected].name}` : '';
+    let indexSelected = menuItems.findIndex(
+        
+        (item) => location.pathname === item.link
+      );
+
+    let selected =
+    indexSelected !== -1 ? `menu_${menuItems[indexSelected].name}` : '';
 
     const menuRender = () => {
         return(
-            <Menu mode="horizontal" >
+            <Menu mode="horizontal" defaultSelectedKeys={[selected]}>
                 {menuItems.map((menu) => {
                      const { name, link, icon } = menu;
                      return (
@@ -72,4 +72,35 @@ const mainMenu = (props) => {
     )
 };
 
-export default mainMenu
+export default mainMenu*/
+
+
+
+
+
+
+
+
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+
+import Sells from '../components/Sells'
+import Products from '../components/Products'
+
+
+const Stack = createStackNavigator();
+
+function MainMenu() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Sells" component={Sells} />
+        <Stack.Screen name="Products" component={Products} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default MainMenu;
