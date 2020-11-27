@@ -82,7 +82,7 @@ export default mainMenu*/
 
 
 import React from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar, Form, FormControl } from 'react-bootstrap';
 
 import "./index.css"
 
@@ -90,13 +90,17 @@ import "./index.css"
 
 export const NavigationBar = () => (
     <Navbar>
+      <Form className="form-center">
+        <FormControl type="text" placeholder="Search" />
+      </Form>
       <Navbar.Collapse>
         <Nav>
           <Nav.Item><Nav.Link href="/home">Home</Nav.Link></Nav.Item>
           <Nav.Item><Nav.Link href="/products">products</Nav.Link></Nav.Item> 
           <Nav.Item><Nav.Link href="/sells">sells</Nav.Link></Nav.Item> 
           <Nav.Item><Nav.Link href="/clients">clients</Nav.Link></Nav.Item>
-          <Nav.Item><Nav.Link href="/support">support</Nav.Link></Nav.Item>
+          {/*<Nav.Item><Nav.Link href="/support">support</Nav.Link></Nav.Item>
+          <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item>*/}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
