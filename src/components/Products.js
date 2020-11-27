@@ -12,20 +12,80 @@ const { Content, Header } = Layout
 
 const Products = (props) => {
 
-    const [response, setResponse] = useState([]);
-    const [pageTable, setPageTable] = useState([]);
+    // const [response, setResponse] = useState([]);
+    const [pageTable, setPageTable] = useState(1);
 
     useEffect(() => {
-      listarProdutos()
+    //   listarProdutos()
     }, []);
 
-    async function listarProdutos(){
-        const response = await ListarProdutosService()
-        const responseTwo = []
+    const response = [
+        [
+          {
+            "id": "3f872931-f1c9-4fed-b129-bc9b5ce4c3b5",
+            "name": "Produto",
+            "code": 1,
+            "description": "Descricao",
+            "store_name": "Store name",
+            "store_price": 10.5,
+            "price": 10.5,
+            "additional_charge": 10.0,
+            "color": "#ffffff",
+            "weight": 10.0,
+            "brand": "brand",
+            "stock_amount": 10
+          },
+          []
+        ],
+        [
+          {
+            "id": "d3ccf879-4198-4206-bdaf-a51e89bc724a",
+            "name": "Produto",
+            "code": 1,
+            "description": "Descricao",
+            "store_name": "Store name",
+            "store_price": 10.5,
+            "price": 10.5,
+            "additional_charge": 10.0,
+            "color": "#ffffff",
+            "weight": 10.0,
+            "brand": "brand",
+            "stock_amount": 10
+          },
+          []
+        ],
+        [
+          {
+            "id": "47c2d491-5d5b-4bbe-88a1-340c6ffccc65",
+            "name": "Produto2",
+            "code": 2,
+            "description": "Descricao",
+            "store_name": null,
+            "store_price": null,
+            "price": 10.5,
+            "additional_charge": 0.0,
+            "color": "#ffffff",
+            "weight": 10.0,
+            "brand": "brand",
+            "stock_amount": 10
+          },
+          [
+            {
+              "id": "7e967e97-c3e1-437e-b7c2-806db7c4e02d",
+              "label": "teste",
+              "tag_color": "#ffffff"
+            }
+          ]
+        ]
+      ]
+
+    // async function listarProdutos(){
+    //     const response = await ListarProdutosService()
+    //     const responseTwo = []
         
-        setResponse(response)
-        setPageTable(1);
-    }
+    //     setResponse(response)
+    //     setPageTable(1);
+    // }
 
     function handleClick(e){
         var win = window.open(`${process.env.PUBLIC_URL}/createProduct`, '_blank');
