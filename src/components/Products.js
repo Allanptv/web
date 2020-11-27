@@ -30,7 +30,7 @@ const Products = (props) => {
             "store_price": 10.5,
             "price": 10.5,
             "additional_charge": 10.0,
-            "color": "#ffffff",
+            "color": "Verde",
             "weight": 10.0,
             "brand": "brand",
             "stock_amount": 10
@@ -47,7 +47,7 @@ const Products = (props) => {
             "store_price": 10.5,
             "price": 10.5,
             "additional_charge": 10.0,
-            "color": "#ffffff",
+            "color": "Azul",
             "weight": 10.0,
             "brand": "brand",
             "stock_amount": 10
@@ -64,7 +64,7 @@ const Products = (props) => {
             "store_price": null,
             "price": 10.5,
             "additional_charge": 0.0,
-            "color": "#ffffff",
+            "color": "Rosa com bolinhas amarelas",
             "weight": 10.0,
             "brand": "brand",
             "stock_amount": 10

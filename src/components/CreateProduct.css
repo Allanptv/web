@@ -45,7 +45,7 @@ h3{
   color: white;
   height: 100%;
   display: grid;
-  padding: 1% 20%;
+  padding: 1% 10%;
   grid-template-columns: 2fr 2fr 2fr;
   grid-template-rows: 15vh 15vh 15vh 5vh;
   grid-gap: 5px;
@@ -96,7 +96,7 @@ h3{
 }
 
 .divI1 .ant-input{
-  width: 400px;
+  width: 300px;
 }
 
 .divI2{
@@ -106,7 +106,7 @@ h3{
 }
 
 .divI2 .ant-input{
-  width: 400px;
+  width: 300px;
 }
 
 .divI3{

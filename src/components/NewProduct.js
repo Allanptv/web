@@ -70,7 +70,7 @@ const NewProduct = (props) => {
                                 name="preco"
                                 rules={[{required: true, message: 'Insira o preço'}]}
                             >
-                                <Input onChange={e => setPrice(e.target.value)}/>
+                                <Input onChange={e => setPrice(parseFloat(e.target.value))}/>
                             </Form.Item>
                         </div>
                         <div className="divI4">
@@ -88,7 +88,7 @@ const NewProduct = (props) => {
                             name="peso"
                             rules={[{required: true, message: 'Insira o peso'}]}
                         >
-                            <Input  onChange={e => setWeight(e.target.value)}/>
+                            <Input  onChange={e => setWeight(parseFloat(e.target.value))}/>
                         </Form.Item>
                         </div>
 
@@ -108,7 +108,7 @@ const NewProduct = (props) => {
                                 name="quantidade"
                                 rules={[{required: true, message: 'Insira a quantidade'}]}
                             >
-                                <Input onChange={e => setStock_amount(e.target.value)}/>
+                                <Input onChange={e => setStock_amount(parseInt(e.target.value))}/>
                             </Form.Item>
                         </div>
                     <div className="divBtn">

@@ -17,7 +17,7 @@ const Logon = (props) => {
   return (
       
     <React.Fragment>
-        <MainMenu/>
+        {/* <MainMenu/> */}
         <Layout>
             <Content>
                 <div className="site-card-border-less-wrapper">

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Menu, Layout, Drawer } from 'antd'
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const mainMenu = (props) => {
 
@@ -29,19 +29,19 @@ const mainMenu = (props) => {
         },
     ];
 
-    const location = useLocation()
-
-    let indexSelected = menuItems.findIndex(
+    // const { history, user } = props;
+    // debugger
+    // let indexSelected = menuItems.findIndex(
         
-        (item) => location.pathname === item.link
-      );
+    //     (item) =>  history.location.pathname === item.link
+    //   );
 
-    let selected =
-    indexSelected !== -1 ? `menu_${menuItems[indexSelected].name}` : '';
+    // let selected =
+    // indexSelected !== -1 ? `menu_${menuItems[indexSelected].name}` : '';
 
     const menuRender = () => {
         return(
-            <Menu mode="horizontal" defaultSelectedKeys={[selected]}>
+            <Menu mode="horizontal" >
                 {menuItems.map((menu) => {
                      const { name, link, icon } = menu;
                      return (
