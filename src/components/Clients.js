@@ -49,7 +49,7 @@ const Logon = (props) => {
       
     <React.Fragment>
         <Layout>
-             <MainMenu/>
+            {/* <MainMenu/> */}
             <Content>
                 
                 <div className="page_title">

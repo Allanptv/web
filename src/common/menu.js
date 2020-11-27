@@ -81,26 +81,38 @@ export default mainMenu*/
 
 
 
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
+import { Nav, Navbar, Form, FormControl } from 'react-bootstrap';
+import styled from 'styled-components';
 
-
-import Sells from '../components/Sells'
-import Products from '../components/Products'
-
-
-const Stack = createStackNavigator();
-
-function MainMenu() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Sells" component={Sells} />
-        <Stack.Screen name="Products" component={Products} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
-
-export default MainMenu;
+const Styles = styled.div`
+  .navbar { background-color: #222; }
+  a, .navbar-nav, .navbar-light .nav-link {
+    color: #9FFFCB;
+    &:hover { color: white; }
+  }
+  .navbar-brand {
+    font-size: 1.4em;
+    color: #9FFFCB;
+    &:hover { color: white; }
+  }
+  .form-center {
+    position: absolute !important;
+    left: 25%;
+    right: 25%;
+  }
+`;
+export const NavigationBar = () => (
+  <Styles>
+    <Navbar expand="lg">
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          <Nav.Item><Nav.Link href="/">Home</Nav.Link></Nav.Item>
+          <Nav.Item><Nav.Link href="/products">products</Nav.Link></Nav.Item> 
+          <Nav.Item><Nav.Link href="/sells">sells</Nav.Link></Nav.Item> 
+          <Nav.Item><Nav.Link href="/clients">clients</Nav.Link></Nav.Item>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  </Styles>
+)

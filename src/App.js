@@ -7,11 +7,14 @@ import { BrowserRouter as Router, Route} from 'react-router-dom'
 
 import Routes from './Routes'
 
+import {NavigationBar} from './common/menu'
+
 const browserHistory = createBrowserHistory()
 
 function App(){
   return(
     <Router>
+      <NavigationBar />
       <Routes />
     </Router>
   )
