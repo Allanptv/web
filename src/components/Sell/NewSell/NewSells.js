@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Button, Input, Form } from 'antd';
-import {NavigationBar} from '../../../common/Header/header'
+import NavigationBar from '../../../common/Header/header'
 import {Footer} from '../../../common/Footer/footer'
 import { CadastrarProduto } from '../../../services/cadastrarProduto'
+import { useHistory } from "react-router-dom";
 import './index.css';
 
 
@@ -19,6 +20,12 @@ const NewProduct = (props) => {
     const [stock_amount, setStock_amount] = useState(0)
     const [] = useState()
 
+    let history = useHistory();
+  
+    if(Math.floor((Date.now() - localStorage.getItem("session"))/60000) > 30){
+      localStorage.clear()
+      history.push('/')
+    }
 
 
   useEffect(() => {}, []);

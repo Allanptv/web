@@ -7,7 +7,7 @@ async function CadastrarProduto(dadosProduto){
     }
     JSON.stringify(data)
     
-    const response = await api.post(`/products`, data)
+    const response = await api.post('/products', data)
 
     if(response.data)
         return response.data

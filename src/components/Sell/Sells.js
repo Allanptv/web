@@ -1,16 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Button, Divider, Table } from 'antd';
-import {NavigationBar} from '../../common/Header/header'
+import { Layout, Button } from 'antd';
+import NavigationBar from '../../common/Header/header'
 import {Footer} from '../../common/Footer/footer'
 import { ListarVendasService } from '../../services/listarVendasService'
 import { GetClient } from '../../services/getClient'
 import { GetProduct } from '../../services/getProduct'
+import { useHistory } from "react-router-dom";
 import './index.css';
 
-const { Content, Header } = Layout 
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
 
 const Sells = (props) => {
+
+    let history = useHistory();
+  
+    if(Math.floor((Date.now() - localStorage.getItem("session"))/60000) > 30){
+      localStorage.clear()
+      history.push('/')
+    }
 
     const [response, setResponse] = useState([]);
     const [pageTable, setPageTable] = useState([]);
@@ -36,15 +52,40 @@ const Sells = (props) => {
         response.map((item) => {
             vendas[item.code].code = item.code;
             vendas[item.code].client = GetClient(item.client_id)
-            vendas[item.code].product = GetProduct(item.product_id)
+            vendas[item.code].product = GetProduct(item.product_id).product.id
+            //vendas[item.code].categories = GetProduct(item.product_id).categories[0]
             vendas[item.code].sale_date = item.sale_date;
             vendas[item.code].status = item.status;
             vendas[item.code].price = item.price;
         })
-        
+        console.log(vendas)
         setResponse(response)
         setPageTable(1);
     }
+
+    const StyledTableCell = withStyles((theme) => ({
+        head: {
+          backgroundColor: theme.palette.common.black,
+          color: theme.palette.common.white,
+        },
+        body: {
+          fontSize: 14,
+        },
+      }))(TableCell);
+      
+      const StyledTableRow = withStyles((theme) => ({
+        root: {
+          '&:nth-of-type(odd)': {
+            backgroundColor: theme.palette.action.hover,
+          },
+        },
+      }))(TableRow);
+
+      const useStyles = makeStyles({
+        table: {
+          minWidth: 700,
+        },
+      });
 
     
 
@@ -81,38 +122,46 @@ const Sells = (props) => {
         },
     ]
 
+    function createData(name, calories, fat, carbs, protein) {
+        return { name, calories, fat, carbs, protein };
+      }
+      
+    const rows = [
+        createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+        createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+        createData('Eclair', 262, 16.0, 24, 6.0),
+        createData('Cupcake', 305, 3.7, 67, 4.3),
+        createData('Gingerbread', 356, 16.0, 49, 3.9),
+    ];
+
+    const classes = useStyles();
     function productDescription(){
-        // const response = await ListarClienteService()
-        
-            return(
-                <div>
-                    <Divider style={{ borderTop: '1px solid #444444'}} />
-                    {response && <Table 
-                        size="small"
-                        pagination={
-                            (true,
-                            {
-                                current: pageTable,
-                                pageSizeOptions: [10,20,50],
-                                defaultPageSize: 10,
-                                defaultPage: 1,
-                            })
-                        }
-                        rowKey="id"
-                        dataSource={vendas}
-                        columns={productTable}
-                        />
-                    }
-                    {/* <Descriptions title="Dados do cliente">
-                    <Descriptions.item label="Nome: " span={3}>{item.name}</Descriptions.item> */}
-                        {/* <img></img> */}
-                        {/* <Descriptions.item label="Email: " span={3}>{item.email}</Descriptions.item>
-                        <Descriptions.item label="Telefone: " span={3}>{item.phone_number}</Descriptions.item>
-                        <Descriptions.item label="Endereço: " span={3}>{item.address}</Descriptions.item>
-                    </Descriptions> */}
-                </div>
-            )
-        
+        return(
+            <TableContainer component={Paper}>
+                <Table className={classes.table} aria-label="customized table">
+                    <TableHead>
+                        <TableRow>
+                            <StyledTableCell align="right">Código</StyledTableCell>
+                            <StyledTableCell align="right">Nome</StyledTableCell>
+                            <StyledTableCell align="right">Categoria</StyledTableCell>
+                            <StyledTableCell align="right">Descrição</StyledTableCell>
+                            <StyledTableCell align="right">Preço</StyledTableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {rows.map((row) => (
+                            <StyledTableRow key={row.name}>
+                                <StyledTableCell align="right">{row.name}</StyledTableCell>
+                                <StyledTableCell align="right">{row.calories}</StyledTableCell>
+                                <StyledTableCell align="right">{row.fat}</StyledTableCell>
+                                <StyledTableCell align="right">{row.carbs}</StyledTableCell>
+                                <StyledTableCell align="right">{row.protein}</StyledTableCell>
+                            </StyledTableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        )
     }
 
   
@@ -121,21 +170,20 @@ const Sells = (props) => {
     <React.Fragment>
         <Layout>
             <NavigationBar/>
-            <Content>
-                
-                <div className="page_title">
-                    <h1>Vendas</h1>
-                    <Link to="/sells/create">
-                        <Button renderAs="button">
-                            <span>Vendas</span>
-                        </Button>
-                    </Link>
+                <div className="sell_container">
+                    <div className="sells_title">
+                        <div className="sell_title"><h1>Vendas</h1></div>
+                        <Link to="/sells/create" className="new_sell_button">
+                            <Button renderAs="button">
+                                <span>+ Vendas</span>
+                            </Button>
+                        </Link>
+                    </div>
+                    
+                    <div>
+                        {productDescription()}
+                    </div>
                 </div>
-                
-                <div>
-                {productDescription()}
-                </div>
-            </Content>
             <Footer/>
         </Layout>
     </React.Fragment>

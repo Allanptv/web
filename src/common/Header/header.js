@@ -1,107 +1,69 @@
-/*import React from 'react'
-import { Menu, Layout, Drawer } from 'antd'
-import { Link, useLocation } from 'react-router-dom';
+import * as React from "react"
+import { AppBar, Toolbar, IconButton, List, ListItem, ListItemText, Container} from "@material-ui/core"
+import {Link} from 'react-router-dom';
+import { Form, FormControl } from 'react-bootstrap';
+import { Home } from "@material-ui/icons"
+import PersonSharp from '@material-ui/icons/PersonSharp';
+import { makeStyles } from "@material-ui/core/styles"
 
-const mainMenu = (props) => {
+import './index.css'
 
-    const { Header } = Layout;
+const navLinks = [
+  { title: `clients`, path: `/clients` },
+  { title: `products`, path: `/products` },
+  { title: `home`, path: `/home` },
+  { title: `sells`, path: `/sells` },
+  { title: `support`, path: `/home` },
+]
 
-    const menuItems = [
-        {
-            name: 'Home',
-            link: '/'
-        },
-        {
-            name: 'Produtos',
-            link: '/'
-        },
-        {
-            name: 'Vendas',
-            link: '/'
-        },
-        {
-            name: 'Clientes',
-            link: '/clients'
-        },
-        {
-            name: 'Suporte',
-            link: '/'
-        },
-    ];
+const useStyles = makeStyles({
+  navbarDisplayFlex: {
+    display: `flex`
+  },
+  navDisplayFlex: {
+    display: `flex`
+  },
+  linkText: {
+    textDecoration: `none`,
+    textTransform: `uppercase`,
+    color: `white`
+  }
+});
 
-    const location = useLocation()
-
-    let indexSelected = menuItems.findIndex(
-        
-        (item) => location.pathname === item.link
-      );
-
-    let selected =
-    indexSelected !== -1 ? `menu_${menuItems[indexSelected].name}` : '';
-
-    const menuRender = () => {
-        return(
-            <Menu mode="horizontal" defaultSelectedKeys={[selected]}>
-                {menuItems.map((menu) => {
-                     const { name, link, icon } = menu;
-                     return (
-                       <Menu.Item key={`menu_${name}`}>
-                         {link ? (
-                           <Link to={`${link}`}>
-                             {icon} <span>{name}</span>
-                           </Link>
-                         ) : (
-                             <React.Fragment>
-                               {icon} <span>{name}</span>
-                             </React.Fragment>
-                           )}
-                       </Menu.Item>
-                     );
-                })}
-            </Menu>
-            
-        );
-    }
-
-    return(
-        <>
-            <Header>
-    <Drawer>{menuRender(true)}</Drawer>
-            </Header>
-        </>
-    )
-};
-
-export default mainMenu*/
-
-
-
-
-
-
-
-
-import React from 'react';
-import { Nav, Navbar, Form, FormControl } from 'react-bootstrap';
-
-import "./index.css"
-
-
-
-export const NavigationBar = () => (
-    <Navbar>
-      <Form className="form-center">
-        <FormControl type="text" placeholder="Search" />
-      </Form>
-      <Navbar.Collapse>
-        <Nav>
-          <Nav.Item><Nav.Link href="/home">Home</Nav.Link></Nav.Item>
-          <Nav.Item><Nav.Link href="/products">products</Nav.Link></Nav.Item> 
-          <Nav.Item><Nav.Link href="/sells">sells</Nav.Link></Nav.Item> 
-          <Nav.Item><Nav.Link href="/clients">clients</Nav.Link></Nav.Item>
-          {/*<Nav.Item><Nav.Link href="/support">support</Nav.Link></Nav.Item>
-          <Nav.Item><Nav.Link href="/logout">Logout</Nav.Link></Nav.Item>*/}
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-)
+const NavigationBar = () => {
+  const classes = useStyles();
+  return (
+    <AppBar position="fixed">
+      <Toolbar>
+        <Container className={classes.navbarDisplayFlex}>
+          <IconButton edge="start" color="inherit" aria-label="home">
+            <Home fontSize="large" />
+          </IconButton>
+          <List
+            component="nav"
+            aria-labelledby="main navigation"
+            className={classes.navDisplayFlex}
+          >
+            {navLinks.map(({ title, path }) => (
+              <a href={path} key={title} className={classes.linkText}>
+                <ListItem button>
+                  <ListItemText primary={title} />
+                </ListItem>
+              </a>
+            ))}
+          </List>
+          <Form className="form">
+            <FormControl type="text" placeholder="Search" />
+          </Form>
+            <IconButton edge="start" color="inherit" aria-label="home">
+                <div className="teste">
+                  <div><PersonSharp fontSize="large" /></div>
+                  <div><span>ASD</span></div>
+                </div>
+            </IconButton>
+        </Container>
+      </Toolbar>
+    </AppBar>
+  )
+} 
+export default NavigationBar

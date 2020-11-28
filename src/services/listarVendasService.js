@@ -2,7 +2,7 @@ import api from './api'
 
 async function ListarVendasService(){
     const response = await api.get('/requests')
-    debugger
+    console.log(response)
     if(response.data)
         return response.data
     else{

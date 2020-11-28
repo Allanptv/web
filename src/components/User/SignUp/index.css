@@ -1,108 +1,67 @@
-/* // .ant-btn-primary, .ant-btn {
-//     border-color: transparent;
-// } */
-.ant-modal-confirm-success .ant-modal-confirm-body > .anticon {
-    display: none;
-  }
-
-.login_title{
-  background-color: #c4c4c4;
-  border-radius: 10px 10px 0px 0px;
-  color: #000;
-}
-
-.login_title h3{
-  padding: 6px;
-}
-
-.login_footer{
+.card-signup{
+  width: 50%;
+  max-width: 700px;
+  margin: auto;
   margin-top: 5%;
-  background-color: #c4c4c4;
-  border-radius: 0px 0px 10px 10px;
-  color: #000;
-  display: flex;
+  align-items: center;
+  background: #674278;
+  border-radius: 20px;
+}
+
+.card-header-signup{
   width: 100%;
-  align-items: baseline;
-  place-content: center;
+  height: 60px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #C4C4C4;
+  padding-top: 10px;
+  text-align: center;
+  font: 800 30px Roboto, sans_serif;
+  background: #C4C4C4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px 20px 0px 0px;
 }
 
-.login_footer a {
-  color: #0030DB;
+.card-footer-signup{
+  width: 100%;
+  height: 60px;
+  border-radius: 8px;
+  background-color: #C4C4C4;
+  text-align: center;
+  padding-top: 18px;
+  font-size: 20px;
+  background: #C4C4C4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 20px 20px;
 }
 
-.card_login{
-  background-color: #674278;
-  border-radius: 10px;
-  color: white;
-  height: 100%;
+.card-footer-signup .button-signup{
+  margin: auto;
 }
 
-.site-card-border-less-wrapper{
-    text-align: -webkit-center;
-    position: absolute;
-    width: 30%;
-    height: 35%;
-    top: 25%;
-    left: 35%;
+.form-signup{
+  margin: 30px;
+  padding-bottom: 30px;
 }
 
-.page_title{
-  background-color: #c4c4c4;
-  color: #000;
+.form-signup .button-signup{
+  display: block;
 }
 
-.ant-btn{
-  justify-self: center;
-  padding: 10px 30px;
-  border-radius: 5px;
-  border: none;
+.form-signup .input-signup{
+  margin-top: 20px;
 }
 
-.ant-input{
-  height: 30px;
-  margin-bottom: 15px;
-  width: 400px;
-  border-radius: 5px;
-  border: none;
-  margin: 10px;
+.form-signup .input-signup h1{
+  color: #fff;
 }
 
-.ant-col .ant-input{
-  width: auto;
-}
-
-
-.div1{
-  display: grid;
-}
-
-.text{
+.row{
   display: flex;
-  margin: 0px;
-  margin-left: 90px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.Group{
-  width: auto;
-  display: flex;
-}
-
-.Sobrenome{
-  margin: 0px;
-}
-
-.nome{
-  margin-left: 80px;
-}
-
-.teste{
-  margin-left: 10px;
-}
-
-.Senha{
-  margin-left: 77px;
-}
-
-.ant-input-suffix{
-  padding-top: 15px;
+.row .input-signup{
+  width: 47%;
 }

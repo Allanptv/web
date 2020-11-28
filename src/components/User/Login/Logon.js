@@ -12,44 +12,52 @@ const { Content } = Layout
 
 const Logon = (props) => {
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-  useEffect(() => {}, []);
 
   let history = useHistory();
-  async function handleClick(e){
-    //let response = await LoginService(email, password)
-    //console.log(response)
-    history.push('/home')
 
+  async function handleLogin(e){
+    e.preventDefault();
+    try{
+        let res = await LoginService(email, password);
+        
+        if(res != []){
+            localStorage.setItem('user_id', res);
+            localStorage.setItem('session', Date.now());
+            history.push('/home')
+        }
+    }catch(err){
+        console.log('ERRO: ',err.message)
+    }
   }
   
   return (
     <React.Fragment>
         <Layout>
             <Content>
-                <div className="site-card-border-less-wrapper">
-                    <Card className="card_login">
-                        <div className="login_title">
-                            <h3 >Login</h3>
-                        </div>
-                        <p className="text">Nome de Usuário / Email: </p>
-                        <Input placeholder="Usuário" prefix={<UserOutlined />} onChange={e => setEmail(e.target.value)} />
-                        <p className="text" >Senha: </p>
-                        <div className="div1">
-                            <Input.Password placeholder="Senha" prefix={<LockOutlined />} onChange={e => setPassword(e.target.value)} />
-                            <Button onClick={(e) => handleClick()}>Entrar</Button>
-                        </div>
-                        <div className="login_footer">
-                            <p>Ainda não possui uma conta? </p>
-                            <Link to="/signUp">
-                                <Button renderAs="button">
-                                    <span>Cadastre-se</span>
-                                </Button>
-                            </Link>
-                        </div>
-                    </Card>
+                <div className="card-logon">
+                    <div className="card-header-logon">Login</div>
+                    <div className="form-logon">
+                        <form onSubmit={handleLogin} >
+                            <div className="input-logon">
+                                <h1 className="text-logon">Email: </h1>
+                                <input placeholder="Email" value={email} onChange={e => setEmail(e.currentTarget.value)} />
+                            </div>
+                            <div className="input-logon">
+                                <h1 className="text-logon">Senha: </h1>
+                                <input placeholder="Senha"value={password} onChange={e => setPassword(e.currentTarget.value)}/>
+                            </div>
+                            <button className="button-logon" type="submit">Entrar</button>
+                        </form>
+                    </div>
+                    <div className="card-footer-logon">
+                        <span>Ainda não possui uma conta? </span>
+                        <Link to="/signUp">
+                                <span>Cadastre-se</span>
+                        </Link>
+                    </div>
                 </div>
             </Content>
         </Layout>
