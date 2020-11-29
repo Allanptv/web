@@ -17,8 +17,8 @@ const NewClient = (props) => {
     const [address, setEndereco] = useState('')
     const [phone_number, setTelefone] = useState('')
     const [email, setemail] = useState('')
-    const [user_id, setIdUser] = useState('')
 
+    let user_id = localStorage.getItem("user_id");
     let history = useHistory();
   
     if(Math.floor((Date.now() - localStorage.getItem("session"))/60000) > 30){
@@ -30,7 +30,6 @@ const NewClient = (props) => {
   async function handleClick(e){
     e.preventDefault();
     setCompletName(name + " " + lastname);
-    setIdUser(localStorage.getItem("user_id"));
     const cliente = {
         user_id,
         name, 
@@ -75,7 +74,7 @@ const NewClient = (props) => {
                                     <input placeholder="Telefone" value={phone_number} onChange={e => setTelefone(e.currentTarget.value)} />
                                 </div>
                             </div>
-                        <button className="button-new_product" type="submit">Cadastrar</button>
+                        <button className="button-new_client" type="submit">Cadastrar</button>
                     </form>
                 </div>
             </Content>

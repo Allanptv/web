@@ -1,15 +1,12 @@
 import api from './api'
 
 async function CadastrarCliente(dadosCliente){
-    const data = {
-        cliente: dadosCliente
-    }
-    JSON.stringify(data)
+    JSON.stringify(dadosCliente)
     
-    const response = await api.post('/clients', data)
+    const response = await api.post('/clients', dadosCliente)
 
-    if(response.data)
-        return response.data
+    if(response.dadosCliente)
+        return response.dadosCliente
     else{
         return [];
     }
