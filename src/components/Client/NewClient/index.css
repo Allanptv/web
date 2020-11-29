@@ -1,0 +1,87 @@
+.card-new_client{
+  width: 75%;
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 10%;
+  align-items: center;
+  background: #674278;
+  border-radius: 20px;
+}
+
+.card-header-new_client{
+  width: 100%;
+  height: 60px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #C4C4C4;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 30px;
+  background: #C4C4C4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px 20px 0px 0px;
+}
+
+.card-footer-new_client{
+  width: 100%;
+  height: 60px;
+  border-radius: 8px;
+  background-color: #C4C4C4;
+  text-align: center;
+  padding-top: 18px;
+  font-size: 20px;
+  background: #C4C4C4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 20px 20px;
+}
+
+.form-new_client{
+  margin: 30px;
+  padding-bottom: 10px;
+}
+
+.form-new_client .button-new_client{
+  display: block;
+}
+
+.form-new_client .input-new_client{
+  margin-top: 30px;
+  color: #fff;
+}
+
+.text-new_client{
+  color: #fff;
+  margin-left: 5px;
+}
+
+.first_row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.first_row .input_new_client{
+  width: 45%;
+}
+
+.second_row{
+  display: flex;
+  flex-direction: row;
+  margin: 30px 0px;
+  justify-content: normal;
+}
+
+.second_row .input_new_client{
+  width: 30%;
+  margin-right: 5%;
+}
+
+.third_row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.third_row .input_new_client{
+  width: 30%;
+}

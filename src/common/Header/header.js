@@ -9,9 +9,9 @@ import { makeStyles } from "@material-ui/core/styles"
 import './index.css'
 
 const navLinks = [
+  { title: `home`, path: `/home` },
   { title: `clients`, path: `/clients` },
   { title: `products`, path: `/products` },
-  { title: `home`, path: `/home` },
   { title: `sells`, path: `/sells` },
   { title: `support`, path: `/home` },
 ]

@@ -10,6 +10,8 @@ import SignUp from './components/User/SignUp/SignUp';
 import Home from './components/Home/Home';
 
 import Client from './components/Client/Clients';
+import CreateClient from './components/Client/NewClient/NewClient';
+
 
 import Products from './components/Product/Products';
 import CreateProduct from './components/Product/NewProduct/NewProduct';
@@ -37,6 +39,7 @@ export default function Routes(){
         <Route exact path='/home' component={Home}/>
         <Route exact path='/signUp' component={SignUp}/>
         <Route exact path='/clients' component={Client}/>
+        <Route exact path='/clients/create' component={CreateClient}/>
         <Route exact path='/products' component={Products}/>
         <Route exact path='/products/create' component={CreateProduct}/>
         <Route exact path='/sells' component={Sells}/>
