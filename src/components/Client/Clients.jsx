@@ -1,11 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Descriptions, Divider, Button } from 'antd';
+import { Layout, Descriptions, Divider} from 'antd';
 import {Link} from 'react-router-dom';
 import NavigationBar from '../../common/Header/header'
 import {Footer} from '../../common/Footer/footer'
 import { ListarClienteService } from '../../services/listarClienteService'
 import { useHistory } from "react-router-dom";
 import './index.css';
+
+
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
+
+const useStyles = makeStyles({
+    root: {
+      maxWidth: 345,
+    },
+    media: {
+      height: 140,
+    },
+  });
 
 
 const { Content, Header } = Layout 
@@ -28,32 +48,48 @@ const Logon = (props) => {
     async function listarClientes(){
         let id = localStorage.getItem("user_id")
         const response = await ListarClienteService(id)
-        setResponse(response)
+        console.log(response);
+        if(response != null){
+            setResponse(response)
+        }
     }
     if (index == 0){
         listarClientes()
         index = index+1;
     }
 
-    function clientDescription(){
+    function MediaCard() {
+        const classes = useStyles();
         return response.map((item) => {
-            return(
-                <div>
-                    <Divider style={{ borderTop: '1px solid #444444'}} />
-                    <Descriptions title="Dados do cliente">
-                    <Descriptions.item label="Nome: " span={3}>{item.name}</Descriptions.item>
-                    <Descriptions.item label="Email: " span={3}>{item.email}</Descriptions.item>
-                    <Descriptions.item label="Telefone: " span={3}>{item.phone_number}</Descriptions.item>
-                    <Descriptions.item label="Endereço: " span={3}>{item.address}</Descriptions.item>
-                    </Descriptions>
-                </div>
+            return (
+                <Card className={classes.root}>
+                  <CardActionArea>
+                    <CardMedia
+                      className={classes.media}
+                      image= {process.env.PUBLIC_URL + "/thorfin.jpg"}
+                      title="{item.name}"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                          {item.email}
+                      </Typography>
+                      <Typography variant="body2" color="textSecondary" component="p">
+                          Telefone: {item.phone_number}
+                          Endereço: {item.address}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      Ver mais
+                    </Button>
+                  </CardActions>
+                </Card>
             )
         })
     }
-
-  
-  return (
       
+  return (
     <React.Fragment >
         <Layout>
             <NavigationBar/>
@@ -62,14 +98,13 @@ const Logon = (props) => {
                     <div className="clients_title">
                         <div className="client_title"><h1>Clientes</h1></div>
                         <Link to="/clients/create" className="new_client_button">
-                            <Button renderAs="button">
+                            <Button>
                                 <span>+ Cliente</span>
                             </Button>
                         </Link>
                     </div>
-                
-                    <div>
-                    {clientDescription()}
+                    <div className="client_card">
+                    {MediaCard()}
                     </div>
                 </div>
             </Content>
@@ -78,5 +113,6 @@ const Logon = (props) => {
     </React.Fragment>
   );
 };
+
 
 export default Logon;
