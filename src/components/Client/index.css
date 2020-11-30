@@ -3,6 +3,12 @@
     margin-top: 70px;
 }
 
+
+.MuiButtonBase-root.MuiCardActionArea-root{
+    width: 100%;
+    height: initial;
+}
+
 .clients_title{
     display: flex;
     flex-direction: row;
@@ -31,11 +37,6 @@
     color: #fff;
     margin-top: 0;
     border-radius: 15px;
-}
-
-button{
-    width: 100%;
-    height: 100%;
 }
 
 .MuiCard-root{

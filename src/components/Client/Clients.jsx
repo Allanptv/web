@@ -80,7 +80,7 @@ const Logon = (props) => {
                     </CardContent>
                   </CardActionArea>
                   <CardActions>
-                    <Button size="small" color="primary">
+                    <Button className="button_verMais" size="small" color="primary">
                       Ver mais
                     </Button>
                   </CardActions>
@@ -98,9 +98,9 @@ const Logon = (props) => {
                     <div className="clients_title">
                         <div className="client_title"><h1>Clientes</h1></div>
                         <Link to="/clients/create" className="new_client_button">
-                            <Button>
+                            <button>
                                 <span>+ Cliente</span>
-                            </Button>
+                            </button>
                         </Link>
                     </div>
                     <div className="client_card">
