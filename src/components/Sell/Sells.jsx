@@ -151,8 +151,8 @@ const Sells = (props) => {
                     <TableBody>
                         {rows.map((row) => (
                             <StyledTableRow key={row.name}>
-                                <StyledTableCell align="right">{row.name}</StyledTableCell>
                                 <StyledTableCell align="right">{row.calories}</StyledTableCell>
+                                <StyledTableCell align="right">{row.name}</StyledTableCell>
                                 <StyledTableCell align="right">{row.fat}</StyledTableCell>
                                 <StyledTableCell align="right">{row.carbs}</StyledTableCell>
                                 <StyledTableCell align="right">{row.protein}</StyledTableCell>

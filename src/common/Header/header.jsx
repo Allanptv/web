@@ -5,8 +5,11 @@ import { Form, FormControl } from 'react-bootstrap';
 import { Home } from "@material-ui/icons"
 import PersonSharp from '@material-ui/icons/PersonSharp';
 import { makeStyles } from "@material-ui/core/styles"
+import { GetUser } from '../../services/getUser'
+import { useState, useEffect } from 'react';
 
 import './index.css'
+
 
 const navLinks = [
   { title: `home`, path: `/home` },
@@ -29,9 +32,20 @@ const useStyles = makeStyles({
     color: `white`
   }
 });
+ 
+
 
 const NavigationBar = () => {
+  const [nome, setNome] = useState('')
   const classes = useStyles();
+
+  function getName(){
+    let id = localStorage.getItem("user_id")
+    const cliente = GetUser(id)
+    cliente.then((item) => setNome(item.name))
+  }
+
+
   return (
     <AppBar position="fixed">
       <Toolbar>
@@ -58,7 +72,7 @@ const NavigationBar = () => {
             <IconButton edge="start" color="inherit" aria-label="home">
                 <div className="teste">
                   <div><PersonSharp fontSize="large" /></div>
-                  <div><span>ASD</span></div>
+                  <div><span>{getName()}{nome}</span></div>
                 </div>
             </IconButton>
         </Container>

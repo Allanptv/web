@@ -1,140 +1,87 @@
-/* // .ant-btn-primary, .ant-btn {
-//     border-color: transparent;
-// } */
-/*.ant-modal-confirm-success .ant-modal-confirm-body > .anticon {
-    display: none;
-  }
-
-.ant-input{
-  background-color: #c4c4c4;
-  border-radius: 10px 10px 0px 0px;
-  color: #000;
+.card-new_sale{
+  width: 75%;
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 10%;
+  align-items: center;
+  background: #674278;
+  border-radius: 20px;
 }
 
-.login_title{
-  height: 50px;
-  margin: 0px;
-  text-align-last: center;
-  font-size: xx-large;
-  padding: 1px;
-}
-
-h3{
-  display: inline;
-}
-
-.login_footer{
-  margin-top: 5%;
-  background-color: #c4c4c4;
-  border-radius: 0px 0px 10px 10px;
-  color: #000;
-  display: flex;
+.card-header-new_sale{
   width: 100%;
-  align-items: baseline;
-  place-content: center;
+  height: 60px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #C4C4C4;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 30px;
+  background: #C4C4C4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px 20px 0px 0px;
 }
 
-.login_footer a {
-  color: #0030DB;
+.card-footer-new_sale{
+  width: 100%;
+  height: 60px;
+  border-radius: 8px;
+  background-color: #C4C4C4;
+  text-align: center;
+  padding-top: 18px;
+  font-size: 20px;
+  background: #C4C4C4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 20px 20px;
 }
 
-
-.card_login{
-  background-color: #674278;
-  border-radius: 0px 0px 1px 10px;  
-  color: white;
-  height: 100%;
-  display: grid;
-  padding: 1% 20%;
-  grid-template-columns: 2fr 2fr 2fr;
-  grid-template-rows: 15vh 15vh 15vh 5vh;
-  grid-gap: 5px;
-  grid-template-areas:"divI1 divI2 divI2"
-                      "divI3 divI4 divI5"
-                      "divI6 divI7 divI8"
-                      "divBtn divBtn divBtn"
+.form-new_sale{
+  margin: 30px;
+  padding-bottom: 10px;
 }
 
-.site-card-border-less-wrapper{
-    text-align: -webkit-center;
-    position: absolute;
-    width: 30%;
-    height: 35%;
-    top: 25%;
-    left: 35%;
+.form-new_sale .button-new_sale{
+  display: block;
 }
 
-.page_title{
-  background-color: #c4c4c4;
-  color: #000;
+.form-new_sale .input-new_sale{
+  margin-top: 30px;
+  color: #fff;
 }
 
-.ant-btn{
-  justify-self: center;
-  padding: 10px 30px;
-  border-radius: 5px;
-  border: none;
+.text-new_sale{
+  color: #fff;
+  margin-left: 5px;
 }
 
-.ant-input{
-  height: 50px;
-  margin-bottom: 15px;
-  width: 400px;
-  border-radius: 5px;
-  border: none;
-  margin: 10px;
+.first_row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.div1 .ant-input{
-  width: 400px;
+.first_row .input_new_sale{
+  width: 45%;
 }
 
+.second_row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-.divI1{
-  grid-area: divI1;
-  align-self: center;
-}
-
-.divI1 .ant-input{
-  width: 400px;
+  margin: 30px 0px;
 }
 
-.divI2{
-  grid-area: divI2;
-  align-self: center;
-  margin-left: 130px;
+.second_row .input_new_sale{
+  width: 30%;
 }
 
-.divI2 .ant-input{
-  width: 400px;
+.third_row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.divI3{
-  grid-area: divI3;
+.third_row .input_new_sale{
+  width: 30%;
 }
-.divI4{
-  grid-area: divI4;
-  margin-left: -30%;
-}
-.divI5{
-  grid-area: divI5;
-  margin-left: -50%;
-}
-.divI6{
-  grid-area: divI6;
-}
-
-.divI7{
-  grid-area: divI7;
-  margin-left: -30%;
-}
-
-.divI8{
-  grid-area: divI8;
-  margin-left: -50%;
-}
-
-.divBtn{
-  grid-area: divBtn;
-  justify-self: center;
-}*/

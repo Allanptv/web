@@ -2,23 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Layout, Button, Input, Form } from 'antd';
 import NavigationBar from '../../../common/Header/header'
 import {Footer} from '../../../common/Footer/footer'
-import { CadastrarProduto } from '../../../services/cadastrarProduto'
+import { CadastrarVenda } from '../../../services/cadastrarVenda'
 import { useHistory } from "react-router-dom";
 import './index.css';
 
 
 const { Content } = Layout 
 
-const NewProduct = (props) => {
+const NewSells = (props) => {
 
-    const [name, setName] = useState('')
-    const [lName, setLName] = useState('')
-    const [price, setPrice] = useState(0.0)
+    const [nameClient, setName] = useState('')
+    const [lNameClient, setLName] = useState('')
+    const [nameProduct, setNameProduct] = useState('')
+    const [numberItens, setNumberItens] = useState('')
     const [sale_date, setSale_date] = useState('')
-    const [weight, setWeight] = useState(0.0)
-    const [brand, setBrand] = useState('')
-    const [stock_amount, setStock_amount] = useState(0)
-    const [] = useState()
+    const [price, setPrice] = useState(0.0)
+    const [off, setOff] = useState(0.0)
+    const [freight, setFreight] = useState('')
 
     let history = useHistory();
   
@@ -31,17 +31,17 @@ const NewProduct = (props) => {
   useEffect(() => {}, []);
 
   async function handleClick(){
-    const produto = {
-        name, 
-        code: 1,
-        lName, 
-        price, 
+    const venda = {
+        nameClient, 
+        lNameClient,
+        nameProduct, 
+        numberItens, 
         sale_date, 
-        weight, 
-        brand, 
-        stock_amount
+        price, 
+        off,
+        freight 
     };
-    const result = await CadastrarProduto(produto)
+    const result = await CadastrarVenda(venda)
   }
 
 
@@ -50,103 +50,50 @@ const NewProduct = (props) => {
         <Layout>
             <NavigationBar/>
             <Content>
-                <div className="login_title">
-                    <h3 >Cadastras Venda</h3>
+                <div className="card-new_sale">
+                    <div className="card-header-new_sale"><h3>Cadastrar Venda</h3></div>
+                    <form onSubmit={handleClick} className="form-new_sale">
+                            <div className="first_row">
+                                <div className="input_new_sale">
+                                    <h1 className="text-new_sale">Nome Cliente: </h1>
+                                    <input placeholder="Nome Cliente" value={nameClient} onChange={e => setName(e.currentTarget.value)} />
+                                </div>
+                                <div className="input_new_sale">
+                                    <h1 className="text-new_sale">Sobrenome Cliente: </h1>
+                                    <input placeholder="Sobrenome Cliente" value={lNameClient} onChange={e => setLName(e.currentTarget.value)} />
+                                </div>
+                            </div>
+                            <div className="second_row">
+                                <div className="input_new_sale">
+                                    <h1 className="text-new_sale">Nome produto: </h1>
+                                    <input placeholder="Nome produto" value={nameProduct} onChange={e => setNameProduct(e.currentTarget.value)} />
+                                </div>
+                                <div className="input_new_sale">
+                                    <h1 className="text-new_sale">Numero de itens: </h1>
+                                    <input placeholder="Numero de itens" value={numberItens} onChange={e => setNumberItens(e.currentTarget.value)} />
+                                </div>
+                                <div className="input_new_sale">
+                                    <h1 className="text-new_sale">Data da Venda: </h1>
+                                    <input placeholder="Data da Venda" value={sale_date} onChange={e => setSale_date(e.currentTarget.value)} />
+                                </div>
+                            </div>
+                            <div className="third_row">
+                                <div className="input_new_sale">
+                                        <h1 className="text-new_sale">Preço: </h1>
+                                        <input placeholder="Preço" value={price} onChange={e => setPrice(e.currentTarget.value)} />
+                                </div>
+                                <div className="input_new_sale">
+                                    <h1 className="text-new_sale">Desconto: </h1>
+                                    <input placeholder="Desconto" value={off} onChange={e => setOff(e.currentTarget.value)} />
+                                </div>
+                                <div className="input_new_sale">
+                                    <h1 className="text-new_sale">Frete: </h1>
+                                    <input placeholder="Frete" value={freight} onChange={e => setFreight(e.currentTarget.value)} />
+                                </div>
+                            </div>
+                        <button className="button-new_sale" type="submit">Cadastrar</button>
+                    </form>
                 </div>
-                <Form className="card_login"> 
-                    <div className="divI1">
-                        <Form.Item
-                            label="Nome"
-                            name="nome"
-                            rules={[{required: true, message: 'Insira o nome do produto'}]}
-                        >
-                            <Input onChange={e => setName(e.target.value)}/>
-                        </Form.Item>
-                    </div>
-                    <div className="divI2">
-                        <Form.Item
-                            label="Sobrenome"
-                            name="sobrenome"
-                            rules={[{required: false, message: 'Insira o sobrenome'}]}
-                        >
-                            <Input onChange={e => setLName(e.target.value)}/>
-                        </Form.Item>
-                    </div>
-                    <div className="divI3">
-                        <Form.Item
-                            label="Nome do Produto"
-                            name="nome produto"
-                            rules={[{required: true, message: 'Insira o produto'}]}
-                        >
-                            <Input onChange={e => setPrice(e.target.value)}/>
-                        </Form.Item>
-                    </div>
-                    <div className="divI4">
-                        <Form.Item
-                            label="Quantidade"
-                            name="quantidade"
-                            rules={[{required: true, message: 'Insira a quantidade'}]}
-                        >
-                            <Input onChange={e => setSale_date(e.target.value)}/>
-                        </Form.Item>
-                    </div>
-                    <div className="divI5">
-                        <Form.Item
-                            label="Data da venda"
-                            name="sale_date"
-                            rules={[{required: true, message: 'Insira a data da venda'}]}
-                        >
-                            <Input onChange={e => setWeight(e.target.value)}/>
-                        </Form.Item>
-                    </div>
-                    <div className="divI6">
-                        <Form.Item
-                            label="Preço"
-                            name="preco"
-                            rules={[{required: true, message: 'Insira o preço'}]}
-                        >
-                            <Input onChange={e => setBrand(e.target.value)}/>
-                        </Form.Item>
-                    </div>
-                    <div className="divI7">
-                        <Form.Item
-                            label="Desconto"
-                            name="desconto"
-                            rules={[{required: true, message: 'Insira a desconto'}]}
-                        >
-                            <Input onChange={e => setStock_amount(e.target.value)}/>
-                        </Form.Item>
-                    </div>
-                    <div className="divI8">
-                        <Form.Item
-                            label="Frete"
-                            name="frete"
-                            rules={[{required: true, message: 'Insira o frete'}]}
-                        >
-                            <Input onChange={e => setStock_amount(e.target.value)}/>
-                        </Form.Item>
-                    </div>
-                    <div className="divBtn">
-                        <Button onClick={() => handleClick()}>Cadastrar</Button>
-                    </div>       
-                </Form>
-                
-                
-                {/* <div className="body">
-                    <Card className="card_login">
-                        <div className="login_title">
-                            <h3 >Login</h3>
-                        </div>
-                        <p>Nome de Usuário / Email: </p>
-                        <Input placeholder="Usuário" prefix={<UserOutlined />} />
-                        <p>Senha: </p>
-                        <Input placeholder="Senha" prefix={<LockOutlined />} />
-                        <Button>Entrar</Button>
-                        <div className="login_footer">
-                            <p>Ainda não possui uma conta? </p> <a>Cadastre-se</a>
-                        </div>
-                    </Card>
-                </div> */}
             </Content>
             <Footer/>
         </Layout>
@@ -154,4 +101,4 @@ const NewProduct = (props) => {
   );
 };
 
-export default NewProduct;
+export default NewSells;
