@@ -17,7 +17,7 @@ const NewSells = (props) => {
     const [numberItens, setNumberItens] = useState('')
     const [sale_date, setSale_date] = useState('')
     const [price, setPrice] = useState(0.0)
-    const [off, setOff] = useState(0.0)
+    const [discount, setOff] = useState(0.0)
     const [freight, setFreight] = useState('')
 
     let history = useHistory();
@@ -38,7 +38,7 @@ const NewSells = (props) => {
         numberItens, 
         sale_date, 
         price, 
-        off,
+        discount,
         freight 
     };
     const result = await CadastrarVenda(venda)
@@ -84,7 +84,7 @@ const NewSells = (props) => {
                                 </div>
                                 <div className="input_new_sale">
                                     <h1 className="text-new_sale">Desconto: </h1>
-                                    <input placeholder="Desconto" value={off} onChange={e => setOff(e.currentTarget.value)} />
+                                    <input placeholder="Desconto" value={discount} onChange={e => setOff(e.currentTarget.value)} />
                                 </div>
                                 <div className="input_new_sale">
                                     <h1 className="text-new_sale">Frete: </h1>

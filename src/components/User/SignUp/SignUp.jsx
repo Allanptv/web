@@ -20,9 +20,9 @@ const Logon = (props) => {
 
   async function handleSignIn(e){
     e.preventDefault();
-
+    let fullName= name+" "+lastName
     try{
-        let res = await SignUpService(name+lastName, email, password);
+        let res = await SignUpService(fullName, email, password);
 
         if(res != []){
             localStorage.setItem('user_id', res.id);

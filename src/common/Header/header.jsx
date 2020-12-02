@@ -40,9 +40,11 @@ const NavigationBar = () => {
   const classes = useStyles();
 
   function getName(){
-    let id = localStorage.getItem("user_id")
-    const cliente = GetUser(id)
-    cliente.then((item) => setNome(item.name))
+    if(nome != null){
+      let id = localStorage.getItem("user_id")
+      const cliente = GetUser(id)
+      cliente.then((item) => setNome(item.name))
+    }
   }
 
 
