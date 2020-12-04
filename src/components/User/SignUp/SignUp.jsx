@@ -59,7 +59,7 @@ const Logon = (props) => {
                             </div>
                             <div className="input-signup">
                                 <h1 className="text-signup">Senha: </h1>
-                                <input placeholder="Senha" value={password} onChange={e => setPassword(e.currentTarget.value)} />
+                                <input type="password" placeholder="Senha" value={password} onChange={e => setPassword(e.currentTarget.value)} />
                             </div>
                             <button className="button-signup" type="submit">Cadastrar</button>
                         </form>
