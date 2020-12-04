@@ -87,7 +87,7 @@ const Home = (props) => {
         <NavigationBar/>
         <Content>
           {/* <div className='carousel'> */}
-           <div className={classes.root}>
+           {/* <div className={classes.root}>
               <GridList className={classes.gridList} cols={1.2}>
                 {tileData.map((tile) => (
                   <GridListTile key={tile.img}>
@@ -102,7 +102,7 @@ const Home = (props) => {
                   </GridListTile>
                 ))}
               </GridList>
-            </div>
+            </div> */}
           {/* </div> */}
           <div className='grafico_container'>
             <h1>Histórico de Vendas nos últimos meses</h1>
